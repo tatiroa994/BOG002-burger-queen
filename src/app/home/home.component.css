@@ -1,0 +1,28 @@
+.section-home {
+  margin: 0;
+  padding: 0;
+  background-image: url("../../assets/fondo_home.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.container-role {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+
+@media screen and (max-width: 800px) {
+  .container-role {
+    flex-direction: column;
+  }
+}

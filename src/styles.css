@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Permanent+Marker&display=swap');
+:root{
+  --font_title: 'Permanent Marker', cursive;
+  --font-text: 'Handlee', cursive;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("./assets/fondo_horizontal.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    background-image: url("./assets/fondo_vertical.png");
+  }
+}
