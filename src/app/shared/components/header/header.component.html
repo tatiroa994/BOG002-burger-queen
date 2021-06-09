@@ -5,7 +5,7 @@
 </header> -->
 
 <header class="header" [ngStyle]="{'width': isWaiter? '65%':'100%'}">
-    <button (click)="toHome()" class="btn-home" [ngIf]="isWaiter"></button>
+    <button (click)="toHome()" class="btn-home" *ngIf="isWaiter"></button>
     <img src="../../assets/lampara.png" class="ligth1">
     <img src="../../assets/Burguer_logo.gif" class="logo">
     <img src="../../assets/lampara.png" class="ligth2">

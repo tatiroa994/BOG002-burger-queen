@@ -1,0 +1,16 @@
+.container-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 2rem;
+  justify-items: center;
+  width: 62%;
+  margin: 6rem auto auto;
+}
+
+@media screen and (max-width: 800px) {
+  .container-tables {
+    margin: 20rem auto auto;
+    grid-row-gap: 3rem;
+    width: 80%;
+  }
+}

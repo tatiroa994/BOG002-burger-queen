@@ -1,0 +1,50 @@
+.icon-table {
+  background-image: url("../../../../assets/table.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 200px;
+}
+
+.status-table {
+  font-family: var(--font-roboto);
+  font-weight: bold;
+  font-size: 17px;
+  border: solid 3px #000;
+  border-radius: 6px;
+  width: 50%;
+  height: 46px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: seashell;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  font-family: var(--font-text);
+  font-weight: bold;
+  position: absolute;
+  top: 40px;
+  left: -36px;
+}
+
+.item-options {
+  background-color: var(--yellow);
+  border-radius: 5px;
+  border: var(--brown) solid 1px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--brown);
+  text-align: center;
+  margin-bottom: 5px;
+  padding: 5px;
+  -webkit-box-shadow: 6px 5px 12px -2px #000000;
+  box-shadow: 6px 5px 12px -2px #000000;
+}
+
+.container-principal {
+  position: relative;
+}

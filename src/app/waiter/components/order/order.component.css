@@ -1,0 +1,13 @@
+.section-order {
+  width: 100%;
+  padding: 1rem 1rem;
+  display: flex;
+}
+
+app-menu {
+  flex: 1 1 50%;
+}
+
+app-order-detail {
+  flex: 1 1 50%;
+}

@@ -1,0 +1,62 @@
+.container-menu {
+  padding: 0 1rem 0 0;
+}
+.menu-options {
+  width: 50%;
+  border: var(--brown) solid 1px;
+  font-family: var(--font-roboto);
+  font-weight: bold;
+  text-align: center;
+  color: var(--brown);
+  background-color: white;
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.menu-options:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.menu-options:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.container-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.types-menu {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+app-card-item {
+  margin-bottom: 1rem;
+}
+
+.btn-menu{
+  font-family: var(--font-roboto);
+  color: var(--brown);
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: solid 1px var(--brown);
+  padding: 10px 15px;
+  background-color: white;
+}
+
+.active {
+  background-color: var(--yellow);
+}

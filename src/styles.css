@@ -1,9 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Permanent+Marker&family=Roboto:wght@800&display=swap');
 :root{
   --font_title: 'Permanent Marker', cursive;
   --font-text: 'Handlee', cursive;
+  --font-roboto: 'Roboto', sans-serif;
+  --yellow: #F3D75D;
+  --brown: #5E300B;
 }
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -1,0 +1,11 @@
+<div class="card-product">
+    <img [src]="imgProduct" class="img-product">
+    <div class="container-price">
+        <span>
+            {{product}}
+        </span>
+        <span>
+            {{price|currency: "USD": "symbol": "1.0-0"}}
+        </span>
+    </div>
+</div>

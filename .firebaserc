@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "burguer-queen-77d39": {
+      "hosting": {
+        "burguerQueen": [
+          "burguer-queen-77d39"
+        ]
+      }
+    }
+  }
+}

@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'waiter',
     loadChildren: () => import('../app/waiter/waiter.module').then(m => m.WaiterModule)
-  }
+  },
+ 
 ];
 
 @NgModule({
