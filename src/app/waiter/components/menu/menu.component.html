@@ -4,14 +4,17 @@
         <div (click)="showMenu( 'lunch')" class="menu-options" [ngClass]="{active: isVisible}"> Almuerzo y cena </div>
     </div>
     <div *ngIf="isVisible" class="types-menu">
-        <button (click)="getMenuLunch('burguer')" [ngClass]="{'btn-menu':true, active: isType=== 'burguer'}">Hamburguesas</button>
-        <button (click)="getMenuLunch('sidedish')"  [ngClass]="{'btn-menu':true, active: isType=== 'sidedish'}">Acompañamientos</button>
-        <button (click)="getMenuLunch('drink')"  [ngClass]="{'btn-menu':true, active: isType=== 'drink'}">Bebidas</button>
+        <button (click)="getMenuLunch('burguer')"
+            [ngClass]="{'btn-menu':true, active: isType=== 'burguer'}">Hamburguesas</button>
+        <button (click)="getMenuLunch('sidedish')"
+            [ngClass]="{'btn-menu':true, active: isType=== 'sidedish'}">Acompañamientos</button>
+        <button (click)="getMenuLunch('drink')"
+            [ngClass]="{'btn-menu':true, active: isType=== 'drink'}">Bebidas</button>
     </div>
-
     <div class="container-card">
         <app-card-item *ngFor="let item of dataMenu" [imgProduct]="item.url_img" [product]="item.item"
-            [price]="item.price">
+            [price]="item.price" (openModal)= "modalOpen($event)">
         </app-card-item>
     </div>
+    <app-modal-options product="hamburguesa hola" [isVisible]= "showModal"></app-modal-options>
 </div>

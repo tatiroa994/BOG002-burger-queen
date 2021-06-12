@@ -11,11 +11,13 @@ export class MenuComponent implements OnInit {
   public isVisible: boolean;
   public isType: string;
   dataMenu: menuItem[];
+  showModal: boolean;
 
   constructor(private firestoreService: FirestoreService) {
     this.isVisible = false;
     this.isType = 'burger';
     this.dataMenu = [];
+    this.showModal = false;
   }
 
   ngOnInit() {
@@ -45,7 +47,7 @@ export class MenuComponent implements OnInit {
     this.dataMenu = [];
     this.isType = campo;
     console.log(this.isType);
-    
+
     this.firestoreService
       .getMenuByType('menu_lunch_dinner', campo)
       .subscribe((result) => {
@@ -53,5 +55,10 @@ export class MenuComponent implements OnInit {
           this.dataMenu.push(element);
         });
       });
+  }
+
+  modalOpen(isShowModal: boolean) {
+    this.showModal = isShowModal;
+    // console.log(this.showModal);
   }
 }

@@ -11,6 +11,8 @@ import { OrderDetailComponent } from './components/order-detail/order-detail.com
 import { ItemOrderComponent } from './components/item-order/item-order.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { OrderInfoComponent } from './components/order-info/order-info.component';
+import { ModalOptionsComponent } from './components/modal-options/modal-options.component';
+import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { OrderInfoComponent } from './components/order-info/order-info.component
     ItemOrderComponent,
     CardItemComponent,
     OrderInfoComponent,
+    ModalOptionsComponent,
+    QuantityControlComponent,
   ],
   imports: [CommonModule, WaiterRoutingModule, SharedModule],
 })

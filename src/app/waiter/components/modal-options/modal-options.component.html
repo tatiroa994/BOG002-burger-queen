@@ -1,0 +1,29 @@
+<div [ngClass]="{'container-modal':true, show: isVisible}">
+    <div class="modal">
+        <button class="btn-close" (click)="closeModal()">X</button>
+        <h4 class="product">{{ product | uppercase }}</h4>
+        <div class="container-options">
+            <div>
+                <span>Única opción</span>
+                <form>
+                    <label>
+                        <input type="checkbox">1
+                    </label>
+                </form>
+            </div>
+            <div>
+                <span>Múltiple opción</span>
+                <form>
+                    <label>
+                        <input type="radio" name="item">Jamon
+                    </label>
+                    <label>
+                        <input type="radio" name="item">Queso
+                    </label>
+                </form>
+            </div>
+        </div>
+        <app-quantity-control></app-quantity-control>
+        <app-buttom btnType="btn-primary" text="Agregar"></app-buttom>
+    </div>
+</div>

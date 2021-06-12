@@ -1,7 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HeaderComponent } from 'src/app/shared/components/header/header.component';
-import { MenuComponent } from '../menu/menu.component';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-item',
@@ -12,17 +9,17 @@ export class CardItemComponent implements OnInit {
   @Input() imgProduct: string;
   @Input() product: string;
   @Input() price: string;
-  
-
+  @Output() openModal = new EventEmitter<boolean>();
 
   constructor() {
     this.imgProduct = Input();
     this.product = Input();
     this.price = Input();
-    
-
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onOpenModal() {
+    this.openModal.emit(true);
   }
 }

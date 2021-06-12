@@ -1,0 +1,29 @@
+.container-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  margin: 1.5rem 0;
+}
+.btn-menos {
+  background-image: url("../../../../assets/icon_menos.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+
+.btn-mas {
+  background-image: url("../../../../assets/icon_mas.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  margin-left: 7px;
+}
+
+span {
+  font-size: 1.5rem;
+  font-family: var(--font-text);
+  font-weight: bolder;
+}
