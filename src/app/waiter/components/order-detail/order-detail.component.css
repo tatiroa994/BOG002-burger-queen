@@ -1,6 +1,116 @@
-.container-detail{
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 1rem; 
-    border-radius: 8px;   
+.container-detail {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 2rem;
+  border-radius: 8px;
 }
+
+span[item] {
+  font-size: 1.4rem;
+}
+
+div[options] {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+  width: 230px;
+  margin-bottom: 1rem;
+}
+
+div[options] > span {
+  display: inline-block;
+  margin: 3px 16px;
+}
+
+.container-title-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  font-family: var(--font-roboto);
+  color: var(--brown);
+  font-weight: bold;
+}
+
+.container-total {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2.3rem;
+  margin-top: 1.5rem;
+}
+
+.total {
+  font-family: var(--font-roboto);
+  color: var(--brown);
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.price-total {
+  font-family: var(--font-text);
+  font-weight: bold;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.container-cliente-waiter {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  color: var(--brown);
+  font-family: var(--font-roboto);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  border: var(--brown) 1px solid;
+  flex: 1 1 auto;
+  font-size: 1.2rem;
+  color: var(--brown);
+}
+
+input:focus{
+    outline: none;
+}
+
+.order {
+  color: var(--brown);
+  font-family: var(--font-roboto);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.text {
+  flex: 1 1 auto;
+  font-size: 1.2rem;
+}
+
+.container-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-status {
+  width: 40px;
+}
+
+.status{
+    font-family: var(--font-text);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+

@@ -10,11 +10,11 @@ const routes: Routes = [
     component: WaiterComponent,
    
     children: [
-      // {
-      //   path: '',
-      //   redirectTo: '/tables',
-      //   pathMatch: 'full',
-      // },
+      {
+        path: '',
+        redirectTo: 'tables',
+        pathMatch: 'full',
+      },
       {
         path: 'tables',
         component: TablesComponent,

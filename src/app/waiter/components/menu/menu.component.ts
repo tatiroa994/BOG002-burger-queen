@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
-import { menuItem } from './interface';
+import { MenuItem } from '../../../shared/models/menu-item.model';
 
 @Component({
   selector: 'app-menu',
@@ -10,8 +10,9 @@ import { menuItem } from './interface';
 export class MenuComponent implements OnInit {
   public isVisible: boolean;
   public isType: string;
-  dataMenu: menuItem[];
+  dataMenu: MenuItem[];
   showModal: boolean;
+  productSelect!: MenuItem;
 
   constructor(private firestoreService: FirestoreService) {
     this.isVisible = false;
@@ -46,7 +47,6 @@ export class MenuComponent implements OnInit {
   getMenuLunch(campo: string) {
     this.dataMenu = [];
     this.isType = campo;
-    console.log(this.isType);
 
     this.firestoreService
       .getMenuByType('menu_lunch_dinner', campo)
@@ -57,8 +57,8 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  modalOpen(isShowModal: boolean) {
-    this.showModal = isShowModal;
-    // console.log(this.showModal);
+  modalOpen(item: MenuItem) {
+    this.showModal = true;
+    this.productSelect = item;
   }
 }

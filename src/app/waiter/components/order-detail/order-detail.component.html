@@ -1,3 +1,39 @@
 <div class="container-detail">
-    <app-order-info status="Nuevo"></app-order-info>
+    <div class="container-cliente-waiter">
+        <label for="client">
+            <span class="text">Cliente</span>
+            <input type="text" (change)="saveClient(client.value)" #client />
+        </label>
+        <label for="waiter"><span class="text">Meserx</span>
+            <input type="text" (change)="saveWaiter(waiter.value)" #waiter />
+        </label>
+        <div class="container-status">
+            <span class="order">Pedido:</span>
+            <span class="status">nuevo </span>
+            <img src="../../../../assets/new_icon.png" class="icon-status">
+        </div>
+    </div>
+    <div class="container-title-option">
+        <span>Cantidad</span>
+        <span>Producto</span>
+        <span>Valor</span>
+    </div>
+    <div>
+        <app-item-order *ngFor="let product of products; index as i" [price]="pricesOrder[i]"
+            [cantProduct]="product.quantity" [index]="i" (deleteItem)="deleteProduct($event)"
+            (priceOrder)="updateProps($event, i)">
+            <span item>{{ product.item }}</span>
+            <div options *ngIf="product.options.length">
+                <span *ngFor="let option of product.options">+ {{ option }}</span>
+            </div>
+        </app-item-order>
+    </div>
+    <div class="container-total">
+        <span class="total">Total 🤑:</span>
+        <span class="price-total">{{ totalOrder | currency: "USD":"symbol":"1.0-0" }}</span>
+    </div>
+    <div class="container-btn" *ngIf="totalOrder">
+        <app-buttom btnType="btn-secondary" text="Cancelar" routerLink="/waiter" ></app-buttom>
+        <app-buttom btnType="btn-primary" text="Ordenar" (click)="sendOrder()"></app-buttom>
+    </div>
 </div>

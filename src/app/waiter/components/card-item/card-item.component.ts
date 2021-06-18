@@ -9,7 +9,7 @@ export class CardItemComponent implements OnInit {
   @Input() imgProduct: string;
   @Input() product: string;
   @Input() price: string;
-  @Output() openModal = new EventEmitter<boolean>();
+  @Output() openModal = new EventEmitter<null>();
 
   constructor() {
     this.imgProduct = Input();
@@ -20,6 +20,6 @@ export class CardItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onOpenModal() {
-    this.openModal.emit(true);
+    this.openModal.emit();
   }
 }

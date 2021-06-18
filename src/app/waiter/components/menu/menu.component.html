@@ -12,9 +12,10 @@
             [ngClass]="{'btn-menu':true, active: isType=== 'drink'}">Bebidas</button>
     </div>
     <div class="container-card">
+        
         <app-card-item *ngFor="let item of dataMenu" [imgProduct]="item.url_img" [product]="item.item"
-            [price]="item.price" (openModal)= "modalOpen($event)">
+            [price]="item.price" (openModal)= "modalOpen(item)">
         </app-card-item>
     </div>
-    <app-modal-options product="hamburguesa hola" [isVisible]= "showModal"></app-modal-options>
+    <app-modal-options [product]="productSelect" *ngIf="showModal"(closeChange)="showModal= false"></app-modal-options>
 </div>

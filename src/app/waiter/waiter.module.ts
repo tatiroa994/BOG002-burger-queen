@@ -10,9 +10,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
 import { ItemOrderComponent } from './components/item-order/item-order.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
-import { OrderInfoComponent } from './components/order-info/order-info.component';
 import { ModalOptionsComponent } from './components/modal-options/modal-options.component';
 import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,10 +24,14 @@ import { QuantityControlComponent } from './components/quantity-control/quantity
     OrderDetailComponent,
     ItemOrderComponent,
     CardItemComponent,
-    OrderInfoComponent,
     ModalOptionsComponent,
     QuantityControlComponent,
   ],
-  imports: [CommonModule, WaiterRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    WaiterRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class WaiterModule {}
