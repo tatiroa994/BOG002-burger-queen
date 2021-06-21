@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
   pathCurrent: string = location.pathname;
   isWaiter: boolean =
     this.pathCurrent.includes('waiter') || this.pathCurrent.includes('kitchen');
@@ -16,5 +16,5 @@ export class HeaderComponent implements OnInit {
   toHome() {
     this.router.navigate(['/home']);
   }
-  ngOnInit(): void {}
+
 }

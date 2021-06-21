@@ -5,12 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './role-btn.component.html',
   styleUrls: ['./role-btn.component.css'],
 })
-export class RoleBtnComponent implements OnInit {
+export class RoleBtnComponent {
   @Input() urlImg: string;
   @Input() role: string | undefined;
   constructor() {
-    this.urlImg =  Input();
+    this.urlImg = Input();
   }
-
-  ngOnInit(): void {}
 }

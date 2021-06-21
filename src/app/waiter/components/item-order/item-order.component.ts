@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './item-order.component.html',
   styleUrls: ['./item-order.component.css'],
 })
-export class ItemOrderComponent implements OnInit {
+export class ItemOrderComponent {
   @Input() price!: number;
   @Input() index!: number;
   @Input() cantProduct: number;
@@ -15,8 +15,6 @@ export class ItemOrderComponent implements OnInit {
   constructor() {
     this.cantProduct = 1;
   }
-
-  ngOnInit(): void {}
 
   getPriceTotal(cant: number) {
     this.priceOrder.emit(cant);

@@ -3,15 +3,11 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   @Input() idTable: string;
   constructor() {
-    this.idTable= Input();
-   }
-
-  ngOnInit(): void {
+    this.idTable = Input();
   }
-
 }

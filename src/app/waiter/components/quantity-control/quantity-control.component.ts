@@ -5,14 +5,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './quantity-control.component.html',
   styleUrls: ['./quantity-control.component.css'],
 })
-export class QuantityControlComponent implements OnInit {
+export class QuantityControlComponent {
   @Input() cant: number;
   @Output() cantChanged = new EventEmitter<number>();
   constructor() {
     this.cant = 1;
   }
 
-  ngOnInit(): void {}
   dec() {
     this.counter(-1);
   }

@@ -5,8 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tables.component.html',
   styleUrls: ['./tables.component.css'],
 })
-export class TablesComponent implements OnInit {
+export class TablesComponent {
   constructor() {}
   idItems = [1, 2, 3, 4];
-  ngOnInit(): void {}
 }

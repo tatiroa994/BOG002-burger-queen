@@ -5,7 +5,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.css'],
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent {
   @Input() imgProduct: string;
   @Input() product: string;
   @Input() price: string;
@@ -16,8 +16,6 @@ export class CardItemComponent implements OnInit {
     this.product = Input();
     this.price = Input();
   }
-
-  ngOnInit(): void {}
 
   onOpenModal() {
     this.openModal.emit();
