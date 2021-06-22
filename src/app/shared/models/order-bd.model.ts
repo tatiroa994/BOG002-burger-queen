@@ -6,10 +6,16 @@ export interface OrderBd {
 }
 
 export enum StatusOrder {
-  kitchen = 1,
-  preparation,
-  deliver,
-  ready,
+  onKitchen = 1,
+  onPreparation,
+  toDeliver,
+  served,
+  finished,
+}
+
+export enum StatusTable {
+  available= 1,
+  unavailable,
 }
 
 export interface OrderData {
@@ -19,5 +25,5 @@ export interface OrderData {
   'total-order': number;
   waiter: string;
   'date-hour': Date;
-  table:number
+  table: number;
 }
