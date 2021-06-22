@@ -60,5 +60,7 @@ export class MenuComponent implements OnInit {
   modalOpen(item: MenuItem) {
     this.showModal = true;
     this.productSelect = item;
+    console.log( this.productSelect);
+    
   }
 }

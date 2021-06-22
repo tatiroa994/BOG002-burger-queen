@@ -16,18 +16,17 @@ const routes: Routes = [
 
   {
     path: 'kitchen',
-    loadChildren: () => import('../app/kitchen/kitchen.module').then(m => m.KitchenModule)
+    loadChildren: () => import('../app/kitchen/kitchen.module').then((m) => m.KitchenModule),
   },
 
   {
     path: 'waiter',
-    loadChildren: () => import('../app/waiter/waiter.module').then(m => m.WaiterModule)
+    loadChildren: () => import('../app/waiter/waiter.module').then((m) => m.WaiterModule),
   },
- 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -35,8 +35,9 @@ div[options] > span {
 
 .container-total {
   display: flex;
-  justify-content: flex-end;
-  font-size: 2.3rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
   margin-top: 1.5rem;
 }
 

@@ -1,20 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Handlee&family=Permanent+Marker&family=Roboto:wght@800&display=swap');
-:root{
+:root {
   --font_title: 'Permanent Marker', cursive;
   --font-text: 'Handlee', cursive;
   --font-roboto: 'Roboto', sans-serif;
-  --yellow: #F3D75D;
-  --brown: #5E300B;
+  --yellow: #f3d75d;
+  --brown: #5e300b;
 }
-*{
+* {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-image: url("./assets/fondo_horizontal.png");
+  background-image: url('./assets/fondo_horizontal.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -23,6 +23,6 @@ body {
 
 @media screen and (max-width: 800px) {
   body {
-    background-image: url("./assets/fondo_vertical.png");
+    background-image: url('./assets/fondo_vertical.png');
   }
 }

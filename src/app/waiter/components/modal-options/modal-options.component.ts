@@ -1,10 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  AbstractControl,
-  FormArray,
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms';
 import { AddProductService } from 'src/app/services/addProduct/add-product.service';
 import { MenuItem, Option } from '../../../shared/models/menu-item.model';
 
@@ -66,13 +61,11 @@ export class ModalOptionsComponent implements OnInit {
     if (checkboxElement.checked) {
       checkArray.push(new FormControl(checkboxElement.value));
     } else {
-      let i: number = 0;
-      checkArray.controls.forEach((item: AbstractControl) => {
+      checkArray.controls.forEach((item: AbstractControl, index: number) => {
         if (item.value == checkboxElement.value) {
-          checkArray.removeAt(i);
+          checkArray.removeAt(index);
           return;
         }
-        i++;
       });
     }
   }

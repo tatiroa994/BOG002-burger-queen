@@ -29,11 +29,18 @@
         </app-item-order>
     </div>
     <div class="container-total">
-        <span class="total">Total 🤑:</span>
-        <span class="price-total">{{ totalOrder | currency: "USD":"symbol":"1.0-0" }}</span>
+        <div>
+            <span class="total">Mesa:</span>
+            <span class="price-total">{{table}}</span>
+        </div>
+        <div>
+            <span class="total">Total 🤑:</span>
+            <span class="price-total">{{ totalOrder | currency: "USD":"symbol":"1.0-0" }}</span>
+        </div>
+        
     </div>
     <div class="container-btn" *ngIf="totalOrder">
-        <app-buttom btnType="btn-secondary" text="Cancelar" routerLink="/waiter" ></app-buttom>
+        <app-buttom btnType="btn-secondary" text="Cancelar" routerLink="/waiter"></app-buttom>
         <app-buttom btnType="btn-primary" text="Ordenar" (click)="sendOrder()"></app-buttom>
     </div>
 </div>

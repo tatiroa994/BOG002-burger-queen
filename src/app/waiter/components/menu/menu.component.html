@@ -1,21 +1,16 @@
 <div class="container-menu">
-    <div class="container-options">
-        <div (click)="showMenu('breakFast')" class="menu-options" [ngClass]="{active: !isVisible}"> Desayuno </div>
-        <div (click)="showMenu( 'lunch')" class="menu-options" [ngClass]="{active: isVisible}"> Almuerzo y cena </div>
-    </div>
-    <div *ngIf="isVisible" class="types-menu">
-        <button (click)="getMenuLunch('burguer')"
-            [ngClass]="{'btn-menu':true, active: isType=== 'burguer'}">Hamburguesas</button>
-        <button (click)="getMenuLunch('sidedish')"
-            [ngClass]="{'btn-menu':true, active: isType=== 'sidedish'}">Acompañamientos</button>
-        <button (click)="getMenuLunch('drink')"
-            [ngClass]="{'btn-menu':true, active: isType=== 'drink'}">Bebidas</button>
-    </div>
-    <div class="container-card">
-        
-        <app-card-item *ngFor="let item of dataMenu" [imgProduct]="item.url_img" [product]="item.item"
-            [price]="item.price" (openModal)= "modalOpen(item)">
-        </app-card-item>
-    </div>
-    <app-modal-options [product]="productSelect" *ngIf="showModal"(closeChange)="showModal= false"></app-modal-options>
+  <div class="container-options">
+    <div (click)="showMenu('breakFast')" class="menu-options" [ngClass]="{ active: !isVisible }">Desayuno</div>
+    <div (click)="showMenu('lunch')" class="menu-options" [ngClass]="{ active: isVisible }">Almuerzo y cena</div>
+  </div>
+  <div *ngIf="isVisible" class="types-menu">
+    <button (click)="getMenuLunch('burguer')" [ngClass]="{ 'btn-menu': true, active: isType === 'burguer' }">Hamburguesas</button>
+    <button (click)="getMenuLunch('sidedish')" [ngClass]="{ 'btn-menu': true, active: isType === 'sidedish' }">Acompañamientos</button>
+    <button (click)="getMenuLunch('drink')" [ngClass]="{ 'btn-menu': true, active: isType === 'drink' }">Bebidas</button>
+  </div>
+  <div class="container-card">
+    <app-card-item *ngFor="let item of dataMenu" [imgProduct]="item.url_img" [product]="item.item" [price]="item.price" (openModal)="modalOpen(item)">
+    </app-card-item>
+  </div>
+  <app-modal-options [product]="productSelect" *ngIf="showModal" (closeChange)="showModal = false"></app-modal-options>
 </div>

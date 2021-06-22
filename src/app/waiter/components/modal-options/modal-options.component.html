@@ -7,11 +7,7 @@
         <span>Múltiple opción</span>
         <div *ngFor="let item of optionsProduct.multiples; let i = index">
           <label>
-            <input
-              type="checkbox"
-              [value]="item"
-              (change)="onCheckboxChange($event)"
-            />
+            <input type="checkbox" [value]="item" (change)="onCheckboxChange($event)" />
             {{ item }}
           </label>
         </div>
@@ -24,13 +20,7 @@
         </label>
       </div>
     </form>
-    <app-quantity-control
-      (cantChanged)="getCant($event)"
-    ></app-quantity-control>
-    <app-buttom
-      btnType="btn-primary"
-      text="Agregar"
-      (click)="addItem()"
-    ></app-buttom>
+    <app-quantity-control (cantChanged)="getCant($event)"></app-quantity-control>
+    <app-buttom btnType="btn-primary" text="Agregar" (click)="addItem()"></app-buttom>
   </div>
 </div>

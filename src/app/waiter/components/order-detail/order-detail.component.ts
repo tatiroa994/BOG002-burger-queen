@@ -16,21 +16,17 @@ export class OrderDetailComponent implements OnInit {
   totalOrder!: number;
   clientOrder!: string;
   waiterOrder!: string;
-  constructor(
-    private _addProduct: AddProductService,
-    private _firestore: FirestoreService,
-    private router: Router
-  ) {
+  table: number =1;
+  constructor(private _addProduct: AddProductService, private _firestore: FirestoreService, private router: Router) {
     this.products = [];
     this.pricesOrder = [];
   }
 
   ngOnInit(): void {
     this._addProduct.getItem().subscribe((data) => {
-      const dataAs = data;
-      dataAs.options = this.removeEmpty(dataAs.options);
-      this.pricesOrder.push(dataAs.price * dataAs.quantity);
-      this.products.push(dataAs);
+      data.options = this.removeEmpty(data.options);
+      this.pricesOrder.push(data.price * data.quantity);
+      this.products.push(data);
       this.getTotalOrder();
     });
   }
@@ -49,7 +45,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   getTotalOrder() {
-    this.totalOrder = this.pricesOrder.reduce((a, b) => a + b, 0);
+    this.totalOrder = this.pricesOrder.reduce((a, b) => a + b,0);
   }
 
   removeEmpty(arr: string[]) {
