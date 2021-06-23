@@ -20,7 +20,7 @@ const routes: Routes = [
         component: TablesComponent,
       },
       {
-        path: 'order',
+        path: 'order/:id',
         component: OrderComponent,
       },
     ],

@@ -10,9 +10,7 @@ export class FirestoreService {
 
   //Obtiene menu por campo
   public getMenuByType(colleccion: string, campo: string) {
-    return this.firestore
-      .collection(colleccion, (ref) => ref.where('tipo', '==', campo))
-      .valueChanges();
+    return this.firestore.collection(colleccion, (ref) => ref.where('tipo', '==', campo)).valueChanges();
   }
   //Obtiene todos los menus
   public getMenu(colleccion: string) {
@@ -20,12 +18,18 @@ export class FirestoreService {
   }
 
   // Crea un nuevo pedido
-  public createOrder(data:OrderData) {
+  public createOrder(data: OrderData) {
     return this.firestore.collection('orders').add(data);
   }
 
-  // Actualiza un pedido
-  public updateOrder(documentId: string, data: any) {
-    return this.firestore.collection('order').doc(documentId).set(data);
+  // Actualiza una mesa
+  public updateOrder(documentId: string, data: OrderData) {
+    return this.firestore.collection('table').doc(documentId).set(data);
+  }
+
+  // Obtiene pedidos activos por mesa
+
+  public getActiveOrder() {
+    return this.firestore.collection('tables').valueChanges();
   }
 }

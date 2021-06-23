@@ -64,6 +64,7 @@ export class OrderDetailComponent implements OnInit {
       waiter: this.waiterOrder,
       'date-hour': new Date(),
       table: 1,
+      idTable: 1,
     };
     this._firestore.createOrder(orderData);
     this.router.navigate(['/waiter']);

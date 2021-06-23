@@ -1,5 +1,5 @@
 .icon-table {
-  background-image: url("../../../../assets/table.png");
+  background-image: url('../../../../assets/table.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 150px;
@@ -18,7 +18,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: seashell;
+  background-color: violet;
+}
+
+.table-free {
+  background-color: white;
+}
+
+.table-kitchen {
+  background-color: #ebc857;
+}
+
+.table-toDeliver {
+  background-color: #d27c7c;
+}
+
+.table-served {
+  background-color: #65a965;
 }
 
 .options {

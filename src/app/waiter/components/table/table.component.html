@@ -1,14 +1,14 @@
 <div class="container-principal">
-    <div class="icon-table">
-        <div class="status-table">
+    <div class="icon-table"(click)="showOptions()">
+        <div class="status-table {{statusColor}}">
             <span>{{idTable}}</span>
-            <span>status</span>
+            <span>{{statusText}}</span>
         </div>
     </div>
-    <ul class="options">
-        <li class="item-options">Nuevo pedido</li>
-        <li class="item-options">Editar pedido</li>
-        <li class="item-options">Entregar</li>
-        <li class="item-options">Finalizar</li>
+    <ul *ngIf='showMenu' class="options">
+        <li *ngIf='!statusOrder' class="item-options" routerLink='/waiter/order/{{idTable}}'>Nuevo pedido</li>
+        <li  *ngIf='statusOrder === 1 || statusOrder === 2 || statusOrder === 4' class="item-options">Editar pedido</li>
+        <li *ngIf='statusOrder === 3' class="item-options">Entregar</li>
+        <li *ngIf='statusOrder === 4' class="item-options">Finalizar</li>
     </ul>
 </div>
