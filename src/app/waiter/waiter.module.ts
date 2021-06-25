@@ -12,7 +12,8 @@ import { ItemOrderComponent } from './components/item-order/item-order.component
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { ModalOptionsComponent } from './components/modal-options/modal-options.component';
 import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Capitalize } from '../shared/pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardItemComponent,
     ModalOptionsComponent,
     QuantityControlComponent,
+    Capitalize
   ],
   imports: [
     CommonModule,
-    WaiterRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    FormsModule,
+    WaiterRoutingModule,
   ],
 })
 export class WaiterModule {}

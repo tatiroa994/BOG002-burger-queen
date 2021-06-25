@@ -4,8 +4,9 @@
   --font_title: 'Permanent Marker', cursive;
   --font-text: 'Handlee', cursive;
   --font-roboto: 'Roboto', sans-serif;
-  --yellow: #f3d75d;
-  --brown: #5e300b;
+  --color-yellow: #fdbf04;
+  --color-black: #212121;
+  --color-white: #f4f4f4;
 }
 * {
   box-sizing: border-box;
@@ -14,7 +15,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./assets/fondo_horizontal.png');
+  background-image: url('./assets/fondo.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -22,7 +23,4 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-  body {
-    background-image: url('./assets/fondo_vertical.png');
-  }
 }

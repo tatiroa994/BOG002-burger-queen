@@ -50,8 +50,12 @@ export class ModalOptionsComponent implements OnInit {
     this.closeModal();
   }
 
-  getCant(cantProduct: number) {
+  setCant(cantProduct: number) {
     this.quantity = cantProduct;
+  }
+
+  getCant() {
+    return this.quantity;
   }
 
   onCheckboxChange(event: Event) {

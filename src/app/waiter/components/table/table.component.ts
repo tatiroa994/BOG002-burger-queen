@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,7 @@ export class TableComponent implements OnInit {
   showMenu: boolean = false;
   statusText!: string;
   statusColor!: string;
-  constructor() {
+  constructor(private router: Router) {
     this.idTable = Input();
   }
   ngOnInit(): void {
@@ -19,7 +20,6 @@ export class TableComponent implements OnInit {
   }
 
   showOptions() {
-    console.log(this.statusOrder);
     this.showMenu = !this.showMenu;
   }
 
@@ -55,5 +55,9 @@ export class TableComponent implements OnInit {
         this.statusColor = 'table-free';
         break;
     }
+  }
+
+  sendingIndex() {
+    this.router.navigate([`/waiter/order/${this.idTable}`]);
   }
 }

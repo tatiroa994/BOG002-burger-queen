@@ -1,17 +1,17 @@
 button {
   font-family: var(--font-roboto);
-  color: var(--brown);
-  font-size: 16px;
+  color: var(--color-black);
+  font-size: 1.5rem;
   font-weight: bold;
   border-radius: 5px;
-  border: solid 1px var(--brown);
-  padding: 7px 13px;
+  border: solid 1px var(--color-yellow);
+  padding: 10px 20px;
 }
 
 .btn-primary {
-    background-color: var(--yellow);
+    background-color: var(--color-yellow);
 }
 
 .btn-secondary {
-    background-color: white;
+    background-color: var(--color-white);
 }

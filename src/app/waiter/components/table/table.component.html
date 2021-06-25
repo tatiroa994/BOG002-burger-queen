@@ -1,13 +1,13 @@
 <div class="container-principal">
-    <div class="icon-table"(click)="showOptions()">
-        <div class="status-table {{statusColor}}">
+    <div class="icon-table {{statusColor}}"(click)="showOptions()">
+        <div class="status-table">
             <span>{{idTable}}</span>
             <span>{{statusText}}</span>
         </div>
     </div>
     <ul *ngIf='showMenu' class="options">
         <li *ngIf='!statusOrder' class="item-options" routerLink='/waiter/order/{{idTable}}'>Nuevo pedido</li>
-        <li  *ngIf='statusOrder === 1 || statusOrder === 2 || statusOrder === 4' class="item-options">Editar pedido</li>
+        <li  *ngIf='statusOrder === 1 || statusOrder === 2 || statusOrder === 4' class="item-options" (click)="sendingIndex()">Editar pedido</li>
         <li *ngIf='statusOrder === 3' class="item-options">Entregar</li>
         <li *ngIf='statusOrder === 4' class="item-options">Finalizar</li>
     </ul>

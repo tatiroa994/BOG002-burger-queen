@@ -13,7 +13,7 @@ header {
 
 .ligth1,
 .ligth2 {
-  width: 20%;
+  width: 30%;
   max-width: 270px;
 }
 
@@ -33,7 +33,7 @@ header {
   height: 50px;
   border: none;
   background-color: transparent;
-  background-image: url("../../../../assets/home.png");
+  background-image: url("../../../../assets/home.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;

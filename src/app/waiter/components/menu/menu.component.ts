@@ -48,19 +48,16 @@ export class MenuComponent implements OnInit {
     this.dataMenu = [];
     this.isType = campo;
 
-    this.firestoreService
-      .getMenuByType('menu_lunch_dinner', campo)
-      .subscribe((result) => {
-        result.forEach((element: any) => {
-          this.dataMenu.push(element);
-        });
+    this.firestoreService.getMenuByType('menu_lunch_dinner', campo).subscribe((result) => {
+      result.forEach((element: any) => {
+        this.dataMenu.push(element);
       });
+    });
   }
 
   modalOpen(item: MenuItem) {
     this.showModal = true;
     this.productSelect = item;
-    console.log( this.productSelect);
-    
+    console.log(this.productSelect);
   }
 }

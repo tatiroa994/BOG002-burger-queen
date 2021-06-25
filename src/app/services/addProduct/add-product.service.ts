@@ -9,9 +9,7 @@ export class AddProductService {
   private addProductSubject = new Subject<OrderBd>();
   public addProduct$ = this.addProductSubject.asObservable();
 
-  constructor() {
-    console.log('addProductService');
-  }
+  constructor() {}
 
   addItem(item: OrderBd) {
     this.addProductSubject.next(item);
@@ -20,6 +18,4 @@ export class AddProductService {
   getItem() {
     return this.addProduct$;
   }
-
- 
 }

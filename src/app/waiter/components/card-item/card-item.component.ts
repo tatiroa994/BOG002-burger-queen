@@ -8,7 +8,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class CardItemComponent {
   @Input() imgProduct: string;
   @Input() product: string;
-  @Input() price: string;
+  @Input() price: number;
   @Output() openModal = new EventEmitter<null>();
 
   constructor() {

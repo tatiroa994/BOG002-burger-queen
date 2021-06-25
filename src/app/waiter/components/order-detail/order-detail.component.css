@@ -1,12 +1,18 @@
 .container-detail {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: var(--color-black);
   padding: 2rem;
   border-radius: 8px;
+  box-shadow: inset 19px 19px 60px #121212, inset -19px -19px 60px #303030;
+  border: solid 1px #f4f4f473;
 }
 
 span[item] {
   font-size: 1.4rem;
+}
+
+.disable {
+  color: grey;
 }
 
 div[options] {
@@ -29,8 +35,7 @@ div[options] > span {
   font-size: 1.5rem;
   margin-top: 2rem;
   font-family: var(--font-roboto);
-  color: var(--brown);
-  font-weight: bold;
+  color: var(--color-yellow);
 }
 
 .container-total {
@@ -43,14 +48,13 @@ div[options] > span {
 
 .total {
   font-family: var(--font-roboto);
-  color: var(--brown);
-  font-weight: bold;
+  color: var(--color-yellow);
   margin-right: 1rem;
 }
 
 .price-total {
   font-family: var(--font-text);
-  font-weight: bold;
+  color: var(--color-white);
 }
 
 .container-btn {
@@ -66,9 +70,8 @@ div[options] > span {
 
 label {
   display: flex;
-  color: var(--brown);
+  color: var(--color-yellow);
   font-family: var(--font-roboto);
-  font-weight: bold;
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
@@ -79,17 +82,26 @@ input {
   border: var(--brown) 1px solid;
   flex: 1 1 auto;
   font-size: 1.2rem;
-  color: var(--brown);
+  color: var(--color-black);
 }
 
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
+}
+
+.input-text {
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  flex: 1 1 auto;
+  font-size: 1.2rem;
+  color: var(--color-white);
+  background-color: transparent;
 }
 
 .order {
-  color: var(--brown);
+  color: var(--color-yellow);
   font-family: var(--font-roboto);
-  font-weight: bold;
   font-size: 1.2rem;
 }
 
@@ -108,10 +120,20 @@ input:focus{
   width: 40px;
 }
 
-.status{
-    font-family: var(--font-text);
-    font-weight: bold;
-    font-size: 1.2rem;
+.status {
+  color: var(--color-yellow);
+  font-family: var(--font-text);
+  font-size: 1.2rem;
 }
 
+.status-green {
+  color: #31a833;
+}
 
+.status-red {
+  color: #ff0000;
+}
+
+.status-white {
+  color: var(--color-white);
+}

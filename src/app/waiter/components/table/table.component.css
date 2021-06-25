@@ -1,40 +1,44 @@
 .icon-table {
-  background-image: url('../../../../assets/table.png');
+  background-image: url('../../../../assets/mesa_libre.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 150px;
-  height: 200px;
+  width: 200px;
+  height: 220px;
+  position: relative;
 }
 
 .status-table {
   font-family: var(--font-roboto);
   font-weight: bold;
   font-size: 17px;
-  border: solid 3px #000;
-  border-radius: 6px;
   width: 50%;
   height: 46px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: violet;
+  position: absolute;
+  top: 89px;
+  left: 50px;
+  background-color: transparent;
 }
 
 .table-free {
-  background-color: white;
+  background-image: url('../../../../assets/mesa_libre.png');
 }
 
 .table-kitchen {
-  background-color: #ebc857;
+  background-image: url('../../../../assets/mesa_cocina.png');
 }
 
 .table-toDeliver {
-  background-color: #d27c7c;
+  background-image: url('../../../../assets/mesa_listo.png');
+  color:var(--color-white);
 }
 
 .table-served {
-  background-color: #65a965;
+  background-image: url('../../../../assets/mesa_servido.png');
+  color: var(--color-white);
 }
 
 .options {
@@ -48,12 +52,12 @@
 }
 
 .item-options {
-  background-color: var(--yellow);
+  background-color: var(--color-yellow);
   border-radius: 5px;
-  border: var(--brown) solid 1px;
+  border: var(--color-black) solid 1px;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--brown);
+  color: var(--color-black);
   text-align: center;
   margin-bottom: 5px;
   padding: 5px;

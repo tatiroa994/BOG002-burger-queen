@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { OrderData } from 'src/app/shared/models/order-bd.model';
+import { OrderData, OrderDataEdit } from 'src/app/shared/models/order-bd.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,19 +17,27 @@ export class FirestoreService {
     return this.firestore.collection(colleccion).get();
   }
 
-  // Crea un nuevo pedido
+  //Guardar en el  historial de pedidos
   public createOrder(data: OrderData) {
     return this.firestore.collection('orders').add(data);
   }
 
-  // Actualiza una mesa
+  // Envia pedido activo a la mesa 
   public updateOrder(documentId: string, data: OrderData) {
-    return this.firestore.collection('table').doc(documentId).set(data);
+    return this.firestore.collection('tables').doc(documentId).update(data);
+  }
+  
+  // editar pedido activo en la mesa #
+  public updateOrderActive(documentId: string, data: OrderDataEdit) {
+    return this.firestore.collection('tables').doc(documentId).update(data);
+  }
+  // Obtiene pedidos activos por mesa
+  public getActiveOrders() {
+    return this.firestore.collection('tables').valueChanges();
   }
 
-  // Obtiene pedidos activos por mesa
-
-  public getActiveOrder() {
-    return this.firestore.collection('tables').valueChanges();
+  // Obtiene pedido activo por mesa especifica
+  public getActiveOrder(documentId:string) {
+    return this.firestore.collection('tables').doc(documentId).valueChanges();
   }
 }

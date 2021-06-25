@@ -1,11 +1,13 @@
 <div class="card-product" (click)="onOpenModal()">
-    <img [src]="imgProduct" class="img-product">
-    <div class="container-price">
-        <span>
-            {{product}}
-        </span>
-        <span>
-            {{price|currency: "USD": "symbol": "1.0-0"}}
-        </span>
-    </div>
+  <div class="container-img">
+    <img [src]="imgProduct" class="img-product" />
+  </div>
+  <div class="container-price">
+    <span>
+      {{ product }}
+    </span>
+    <span>
+      {{ price | currency: 'USD':'symbol':'1.0-0' }}
+    </span>
+  </div>
 </div>

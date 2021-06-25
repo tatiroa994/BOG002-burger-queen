@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentOrderService } from 'src/app/services/current-order/current-order.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { OrderData } from 'src/app/shared/models/order-bd.model';
 
@@ -8,21 +9,16 @@ import { OrderData } from 'src/app/shared/models/order-bd.model';
   styleUrls: ['./tables.component.css'],
 })
 export class TablesComponent implements OnInit {
-  idItems: OrderData[];
+  items: OrderData[];
   constructor(private firestore: FirestoreService) {
-    this.idItems = [];
+    this.items = [];
   }
   ngOnInit(): void {
-    this.firestore.getActiveOrder().subscribe((data) => {
-      // console.log(data);
-      this.idItems = [];
+    this.firestore.getActiveOrders().subscribe((data) => {
+      this.items = [];
       data.forEach((element: any) => {
-        this.idItems.push({...element, idTable: element.id})
-         console.log(element.id);
-        
-        
+        this.items.push(element);
       });
-      console.log(this.idItems);
     });
   }
 }

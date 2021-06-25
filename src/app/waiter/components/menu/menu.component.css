@@ -3,14 +3,14 @@
 }
 .menu-options {
   width: 50%;
-  border: var(--brown) solid 1px;
+  border: var(--color-black) solid 1px;
   font-family: var(--font-roboto);
   font-weight: bold;
   text-align: center;
-  color: var(--brown);
-  background-color: white;
-  padding: 0.5rem 0;
-  font-size: 1.2rem;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 0.8rem 0;
+    font-size: 1.5rem;
 }
 
 .menu-options:first-child {
@@ -48,15 +48,15 @@ app-card-item {
 
 .btn-menu{
   font-family: var(--font-roboto);
-  color: var(--brown);
+  color: var(--color-black);
   font-size: 1.2rem;
   font-weight: bold;
   border-radius: 5px;
-  border: solid 1px var(--brown);
+  border: solid 1px var(--color-black);
   padding: 10px 15px;
-  background-color: white;
+  background-color: var(--color-white);
 }
 
 .active {
-  background-color: var(--yellow);
+  background-color: var(--color-yellow);
 }
