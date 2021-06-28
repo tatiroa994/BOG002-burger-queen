@@ -1,14 +1,25 @@
 <div class="container-principal">
-    <div class="icon-table {{statusColor}}"(click)="showOptions()">
-        <div class="status-table">
-            <span>{{idTable}}</span>
-            <span>{{statusText}}</span>
-        </div>
+  <div class="icon-table {{ statusColor }}" (click)="showOptions()">
+    <div class="status-table">
+      <span>{{ idTable }}</span>
+      <span>{{ statusText }}</span>
     </div>
-    <ul *ngIf='showMenu' class="options">
-        <li *ngIf='!statusOrder' class="item-options" routerLink='/waiter/order/{{idTable}}'>Nuevo pedido</li>
-        <li  *ngIf='statusOrder === 1 || statusOrder === 2 || statusOrder === 4' class="item-options" (click)="sendingIndex()">Editar pedido</li>
-        <li *ngIf='statusOrder === 3' class="item-options">Entregar</li>
-        <li *ngIf='statusOrder === 4' class="item-options">Finalizar</li>
-    </ul>
+  </div>
+  <ul *ngIf="showMenu" class="options">
+    <li *ngIf="!statusOrder" class="item-options" routerLink="/waiter/order/{{ idTable }}">Nuevo pedido</li>
+    <li
+      *ngIf="statusOrder === 1 || statusOrder === 2 || statusOrder === 4"
+      class="item-options"
+      (click)="sendingIndex()"
+    >
+      Editar pedido
+    </li>
+    <li *ngIf="statusOrder === 3" class="item-options" (click)="deliverOrder()">Entregar</li>
+    <li *ngIf="statusOrder === 4" class="item-options" (click)="openPopup()">Finalizar</li>
+  </ul>
+  <div class="popup-finished" [ngClass]="{ show: popupOpen }">
+    <span class="btn-popupClose" (click)="popupOpen = false">x</span>
+    <p class="text-popup">¿Desea finalizar el pedido?</p>
+    <app-buttom btnType="btn-primary" text="Aceptar" (click)="finishOrder()"></app-buttom>
+  </div>
 </div>

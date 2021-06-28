@@ -5,14 +5,12 @@
   border-radius: 8px;
   box-shadow: inset 19px 19px 60px #121212, inset -19px -19px 60px #303030;
   border: solid 1px #f4f4f473;
+  position: relative;
+  z-index: 1;
 }
 
 span[item] {
   font-size: 1.4rem;
-}
-
-.disable {
-  color: grey;
 }
 
 div[options] {
@@ -136,4 +134,47 @@ input:focus {
 
 .status-white {
   color: var(--color-white);
+}
+
+label[for='waiter'] {
+  position: relative;
+}
+.btn-orderCurrent {
+  width: 50px;
+  height: 50px;
+  background-image: url('../../../../assets/order.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: -22px;
+  right: -4px;
+}
+
+.popup-order {
+  display: none;
+  flex-direction: column;
+  background-color: var(--color-white);
+  width: 300px;
+  border-radius: 10px;
+  border: #c4c4c4;
+  padding: 1rem;
+  position: absolute;
+  top: 57px;
+  right: 78px;
+}
+
+.item-popup {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-roboto);
+  margin-bottom: 5px;
+}
+
+.item-popup h3 {
+  margin: 0 0 5px 0;
+}
+
+.show{
+  display: flex;
 }

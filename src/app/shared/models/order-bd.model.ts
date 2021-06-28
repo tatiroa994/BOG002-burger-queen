@@ -5,7 +5,7 @@ export interface OrderBd {
   quantity: number;
 }
 
-export enum StatusOrder {
+export enum StatusOrder { //StatusOrder[0] colecciones de constantes
   NUEVO = 0,
   ENVIADO_COCINA = 1,
   EN_PREPARACION = 2,
@@ -13,7 +13,7 @@ export enum StatusOrder {
 export interface OrderData {
   client: string;
   products: OrderBd[];
-  status: StatusOrder;
+  status: number;
   'total-order': number;
   waiter: string;
   'date-hour': Date;
@@ -23,4 +23,10 @@ export interface OrderData {
 export interface OrderDataEdit {
   products: OrderBd[];
   'total-order': number;
+}
+
+
+export interface ItemPopup{
+  product:string;
+  quantity: number;
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddProductService } from 'src/app/services/addProduct/add-product.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
-import { OrderBd, OrderData, OrderDataEdit, StatusOrder } from 'src/app/shared/models/order-bd.model';
+import { ItemPopup, OrderBd, OrderData, OrderDataEdit } from 'src/app/shared/models/order-bd.model';
 
 @Component({
   selector: 'app-order-detail',
@@ -23,7 +23,10 @@ export class OrderDetailComponent implements OnInit {
   statusColor!: string;
   urlImgStatus!: string;
   textBtn!: string;
-  disableItem!: boolean;
+  popup!: boolean;
+  itemsPopup!: OrderBd[];
+  isPopupIcon!: number;
+
   constructor(
     private _addProduct: AddProductService,
     private _firestore: FirestoreService,
@@ -37,7 +40,8 @@ export class OrderDetailComponent implements OnInit {
     this.statusText = 'nuevo';
     this.urlImgStatus = '../../../../assets/new_icon.png';
     this.textBtn = 'Ordenar';
-    this.disableItem = false;
+    this.popup = false;
+    this.itemsPopup = [];
   }
 
   ngOnInit(): void {
@@ -101,15 +105,19 @@ export class OrderDetailComponent implements OnInit {
     this._firestore.getActiveOrder(idTable).subscribe((data) => {
       const dataAs = data as OrderData;
       if (dataAs.table) {
+        this.isPopupIcon = dataAs.status;
         this.valueClient = dataAs.client;
         this.valueWaiter = dataAs.waiter;
         this.statusText = this.getStatusText(dataAs.status);
-        this.products = dataAs.products;
         this.totalOrder = dataAs['total-order'];
         dataAs.products.forEach((element) => {
           this.pricesOrder.push(element.price * element.quantity);
         });
-        this.disableItemOrder(dataAs.status, dataAs.products.length);
+        if (dataAs.status === 2 || dataAs.status === 4) {
+          this.itemsPopup = dataAs.products;
+        } else {
+          this.products = dataAs.products;
+        }
       }
       this.placeHolderBtn();
     });
@@ -144,7 +152,7 @@ export class OrderDetailComponent implements OnInit {
 
   updateOrderCurrent() {
     const data: OrderDataEdit = {
-      products: this.products,
+      products: [...this.products, ...this.itemsPopup],
       'total-order': this.totalOrder,
     };
     this._firestore.updateOrderActive(this.table, data);
@@ -166,16 +174,7 @@ export class OrderDetailComponent implements OnInit {
     }
   }
 
-  disableItemOrder(status: number, lengthProduct:number) {
-    if ((status === 2)) {
-      let i = 0;
-     
-      while (i < lengthProduct) {            
-        this.disableItem = true;
-        console.log(this.disableItem);
-        i++;
-      }
-      
-    }
+  showPopup() {
+    this.popup = !this.popup;
   }
 }

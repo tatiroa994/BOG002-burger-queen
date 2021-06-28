@@ -21,6 +21,7 @@
         [readonly]="valueWaiter"
         [ngClass]="{ 'input-text': valueWaiter }"
       />
+      <div *ngIf="isPopupIcon === 2 || isPopupIcon === 4" class="btn-orderCurrent" (click)="showPopup()"></div>
     </label>
     <div class="container-status">
       <span class="order">Estado del pedido:</span>
@@ -42,7 +43,7 @@
       (deleteItem)="deleteProduct($event)"
       (priceOrder)="updateProps($event, i)"
     >
-      <span item [ngClass]="{'disable': disableItem}">{{ product.item }}</span>
+      <span item>{{ product.item }}</span>
       <div options *ngIf="product.options.length">
         <span *ngFor="let option of product.options">+ {{ option }}</span>
       </div>
@@ -61,5 +62,11 @@
   <div class="container-btn" *ngIf="totalOrder">
     <app-buttom btnType="btn-secondary" text="Cancelar" routerLink="/waiter"></app-buttom>
     <app-buttom btnType="btn-primary" [text]="textBtn" (click)="onClickOrder()"></app-buttom>
+  </div>
+  <div class="popup-order" [ngClass]="{ show: popup }">
+    <div class="item-popup" *ngFor="let item of itemsPopup; index as i">
+      <h3>{{ i + 1 }}. {{ item.item }}</h3>
+      <span>Cantidad: {{ item.quantity }}</span>
+    </div>
   </div>
 </div>

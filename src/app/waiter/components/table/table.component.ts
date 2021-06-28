@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+import { OrderData } from 'src/app/shared/models/order-bd.model';
 
 @Component({
   selector: 'app-table',
@@ -12,8 +14,11 @@ export class TableComponent implements OnInit {
   showMenu: boolean = false;
   statusText!: string;
   statusColor!: string;
-  constructor(private router: Router) {
+  popupOpen!: boolean;
+  dataOrder!: OrderData;
+  constructor(private router: Router, private firestore: FirestoreService) {
     this.idTable = Input();
+    this.popupOpen = false;
   }
   ngOnInit(): void {
     this.printStatus();
@@ -24,15 +29,6 @@ export class TableComponent implements OnInit {
   }
 
   printStatus() {
-    // const statusDefault = 'Mesa libre';
-    // const statusOption = {
-    //   1: 'Enviado cocina',
-    //   2: 'En preparacion',
-    //   3: 'Para entregar',
-    //   4: 'En mesa',
-    // };
-    // this.statusText = statusOption[this.statusOrder] || statusDefault;
-
     switch (this.statusOrder) {
       case 1:
         this.statusText = 'Enviado';
@@ -59,5 +55,22 @@ export class TableComponent implements OnInit {
 
   sendingIndex() {
     this.router.navigate([`/waiter/order/${this.idTable}`]);
+  }
+
+  deliverOrder() {
+    this.firestore.updateStatusCurrentOrder({ status: 4 }, this.idTable.toString());
+  }
+
+  openPopup() {
+    this.popupOpen = true;
+    this.firestore.getActiveOrder(this.idTable.toString()).subscribe((data) => {
+      this.dataOrder = data as OrderData;
+    });
+  }
+
+  finishOrder() {
+    this.popupOpen = false;
+    this.firestore.createOrder(this.dataOrder);
+    this.firestore.setOrderActive(this.idTable.toString(), {})
   }
 }

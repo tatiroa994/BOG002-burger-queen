@@ -14,7 +14,6 @@ import { ModalOptionsComponent } from './components/modal-options/modal-options.
 import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Capitalize } from '../shared/pipes/capitalize.pipe';
-
 @NgModule({
   declarations: [
     TablesComponent,
@@ -27,14 +26,8 @@ import { Capitalize } from '../shared/pipes/capitalize.pipe';
     CardItemComponent,
     ModalOptionsComponent,
     QuantityControlComponent,
-    Capitalize
+    Capitalize,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    ReactiveFormsModule,
-    FormsModule,
-    WaiterRoutingModule,
-  ],
+  imports: [CommonModule, SharedModule, ReactiveFormsModule, FormsModule, WaiterRoutingModule],
 })
 export class WaiterModule {}

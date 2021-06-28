@@ -22,11 +22,11 @@ export class FirestoreService {
     return this.firestore.collection('orders').add(data);
   }
 
-  // Envia pedido activo a la mesa 
+  // Envia pedido activo a la mesa
   public updateOrder(documentId: string, data: OrderData) {
     return this.firestore.collection('tables').doc(documentId).update(data);
   }
-  
+
   // editar pedido activo en la mesa #
   public updateOrderActive(documentId: string, data: OrderDataEdit) {
     return this.firestore.collection('tables').doc(documentId).update(data);
@@ -37,7 +37,17 @@ export class FirestoreService {
   }
 
   // Obtiene pedido activo por mesa especifica
-  public getActiveOrder(documentId:string) {
+  public getActiveOrder(documentId: string) {
     return this.firestore.collection('tables').doc(documentId).valueChanges();
+  }
+
+  //actualiza estado pedido actual
+  public updateStatusCurrentOrder(status: { status: number }, idTable: string) {
+    return this.firestore.collection('tables').doc(idTable).update(status);
+  }
+
+  //setear documento orden actual
+  public setOrderActive(documentId: string, data: {}) {
+    this.firestore.collection('tables').doc(documentId).set(data);
   }
 }

@@ -23,6 +23,8 @@ const routes: Routes = [
         path: 'order/:id',
         component: OrderComponent,
       },
+      
+      
     ],
   },
 ];
