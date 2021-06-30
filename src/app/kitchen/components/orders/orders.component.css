@@ -1,0 +1,62 @@
+.menu-options {
+  width: 100%;
+  border: var(--color-black) solid 1px;
+  font-family: var(--font-roboto);
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 0.8rem 0;
+  font-size: 1.5rem;
+}
+
+.active {
+  background-color: var(--color-yellow);
+}
+
+.menu-options:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.menu-options:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.container-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 70%;
+  max-width: 650px;
+}
+
+.bar-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-records {
+  width: 100px;
+  text-align: center;
+}
+
+.btn-records img {
+  width: 70px;
+  height: 70px;
+}
+
+.btn-records span {
+  font-size: 1.5rem;
+  color: var(--color-yellow);
+  font-family: var(--font-roboto);
+}
+
+.orders-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  width: 100%;
+  padding: 1rem 1.5rem;
+}

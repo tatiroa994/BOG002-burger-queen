@@ -50,4 +50,9 @@ export class FirestoreService {
   public setOrderActive(documentId: string, data: {}) {
     this.firestore.collection('tables').doc(documentId).set(data);
   }
+
+  //Obtiene órdenes por status
+  public getOrdersByStatus(status: number,) {
+    return this.firestore.collection('tables', (ref) => ref.where('status', '==', status)).valueChanges();
+  }
 }
