@@ -7,8 +7,15 @@ import { SharedModule } from '../shared/shared.module';
 import { RecordsComponent } from './components/records/records.component';
 import { PendingOrderComponent } from './components/pending-order/pending-order.component';
 import { OrderInPreparationComponent } from './components/order-in-preparation/order-in-preparation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [OrdersComponent, KitchenComponent, RecordsComponent, PendingOrderComponent, OrderInPreparationComponent],
-  imports: [CommonModule, SharedModule, KitchenRoutingModule],
+  declarations: [
+    OrdersComponent,
+    KitchenComponent,
+    RecordsComponent,
+    PendingOrderComponent,
+    OrderInPreparationComponent,
+  ],
+  imports: [CommonModule, SharedModule, KitchenRoutingModule, ReactiveFormsModule, FormsModule],
 })
 export class KitchenModule {}

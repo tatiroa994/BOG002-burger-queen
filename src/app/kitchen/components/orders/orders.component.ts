@@ -21,14 +21,10 @@ export class OrdersComponent implements OnInit {
     this.firestore.getOrdersByStatus(1).subscribe((data) => {
       const dataOrder = data as OrderData[];
       this.ordersPending = dataOrder;
-      console.log(this.ordersPending);
-      
     });
     this.firestore.getOrdersByStatus(2).subscribe((data) => {
       const dataOrder = data as OrderData[];
       this.ordersInPreparation = dataOrder;
-      console.log(this.ordersInPreparation);
-      
     });
   }
 

@@ -86,8 +86,9 @@ export class OrderDetailComponent implements OnInit {
       status: 1,
       'total-order': this.totalOrder,
       waiter: this.waiterOrder,
-      'date-hour': new Date(),
+      'date-hour': Date.now(),
       table: this.table,
+      'lead-time': '',
     };
     this._firestore.updateOrder(this.table, orderData);
     this.router.navigate(['/waiter']);

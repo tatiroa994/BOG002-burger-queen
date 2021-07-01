@@ -16,8 +16,9 @@ export interface OrderData {
   status: number;
   'total-order': number;
   waiter: string;
-  'date-hour': Date;
+  'date-hour': number;
   table: string;
+  'lead-time':string;
 }
 
 export interface OrderDataEdit {

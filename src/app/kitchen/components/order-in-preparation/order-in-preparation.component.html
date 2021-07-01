@@ -1,21 +1,21 @@
 <div class="container-principal">
-  <span class="table">Mesa {{dataOrder.table}}</span>
-  <span>Mesero: {{dataOrder.waiter}}</span>
-  <span>hora?</span>
+  <span class="table">Mesa {{ dataOrder.table }}</span>
+  <span>Mesero: {{ dataOrder.waiter }}</span>
+  <span>{{ dataOrder['date-hour'] | date: 'medium' }}</span>
   <span class="tittle-order">Pedido:</span>
   <div class="item-order">
-    <form action="">
+    <form [formGroup]="form">
       <div *ngFor="let item of dataOrder.products">
-        <label for="input">
-          <input type="checkbox" id="input"/>
-          {{item.item}}
+        <label>
+          <input type="checkbox" (change)="validateCheckbox($event, dataOrder.table)" value="{{item.item}}"/>
+          {{ item.item }}
         </label>
-        <span class="quantity">Cantidad: {{item.quantity}}</span>
-        <div class="options" *ngIf="item.options.length > 1">
-          <span class="text-options" *ngFor="let item of item.options">+ {{item}}</span>
+        <span class="quantity">Cantidad: {{ item.quantity }}</span>
+        <div class="options" *ngIf="item.options.length > 0">
+          <span class="text-options" *ngFor="let item of item.options">+ {{ item }}</span>
         </div>
       </div>
     </form>
   </div>
-  <app-buttom btnType="btn-primary" text= "Entregar"></app-buttom>
+  <app-buttom btnType="btn-primary" text="Entregar"></app-buttom>
 </div>
