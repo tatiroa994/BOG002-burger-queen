@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { OrderData } from 'src/app/shared/models/order-bd.model';
 
 @Component({
@@ -11,7 +12,10 @@ export class OrderInPreparationComponent implements OnInit {
   @Input() dataOrder!: OrderData;
   timeTotal!: string;
   form!: FormGroup;
-  constructor() {}
+  isVisible!: boolean;
+  constructor(private firestore: FirestoreService) {
+    this.isVisible = false;
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -19,16 +23,15 @@ export class OrderInPreparationComponent implements OnInit {
     });
   }
 
-  validateCheckbox(event: Event, idTable:string) {
+  validateCheckbox(event: Event, idTable: string) {
     const checkArray: FormArray = this.form.get('multiple') as FormArray;
     const checkboxElement = event.target as HTMLInputElement;
     // console.log(checkArray);
-    console.log(checkboxElement.checked);
+    console.log(idTable, 'mesa');
+    
+    console.log(checkboxElement.id);
     if (checkboxElement.checked) {
       checkArray.push(new FormControl(checkboxElement.value));
-      localStorage.setItem('table', idTable);
-      localStorage.setItem( 'item', checkboxElement.value)
-      console.log(localStorage);
       
     } else {
       checkArray.controls.forEach((item: AbstractControl, index: number) => {
@@ -38,7 +41,13 @@ export class OrderInPreparationComponent implements OnInit {
         }
       });
     }
-    console.log(checkArray.controls);
+    const lengthControls = checkArray.controls.length;
+    const lengthProducts = this.dataOrder.products.length;
+    if (lengthControls === lengthProducts) {
+      this.isVisible = true;
+    } else {
+      this.isVisible = false;
+    }
   }
 
   getLeadTime(timeStamp: number) {
@@ -50,6 +59,11 @@ export class OrderInPreparationComponent implements OnInit {
     const minutos = Math.abs(days); // Change to positive
     var minutoPositivo = Math.ceil((minutos - Math.floor(minutos)) * 60);
     this.timeTotal = ` ${horas} hora  ${minutoPositivo} minutos `;
-    console.log(this.timeTotal);
+  }
+
+  sendToTable(){
+    this.getLeadTime(this.dataOrder['date-hour'])
+    this.firestore.updateStatusCurrentOrder({status: 3, 'lead-time': this.timeTotal}, this.dataOrder.table);
   }
 }
+ 

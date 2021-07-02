@@ -1,5 +1,13 @@
+.container-principal {
+  margin-top: 1.5rem;
+}
+.container-order {
+  display: flex;
+  justify-content: space-around;
+}
 .menu-options {
   width: 100%;
+  max-width: 200px;
   border: var(--color-black) solid 1px;
   font-family: var(--font-roboto);
   font-weight: bold;
@@ -8,39 +16,20 @@
   background-color: var(--color-white);
   padding: 0.8rem 0;
   font-size: 1.5rem;
-}
-
-.active {
   background-color: var(--color-yellow);
-}
-
-.menu-options:first-child {
-  border-radius: 8px 0 0 8px;
-}
-
-.menu-options:last-child {
-  border-radius: 0 8px 8px 0;
-}
-
-.container-options {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 70%;
-  max-width: 650px;
-}
-
-.bar-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: absolute;
+  top: -29px;
+  right: 171px;
 }
 
 .btn-records {
   width: 100px;
   text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .btn-records img {
@@ -54,9 +43,19 @@
   font-family: var(--font-roboto);
 }
 
-.orders-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  width: 100%;
-  padding: 1rem 1.5rem;
+.orders-pending,
+.orders-in-preparation {
+  border: 5px var(--color-yellow) solid;
+  padding: 3rem 2rem;
+  position: relative;
+  width: 50%;
+  max-width: 550px;
+  background: #0000006e;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .menu-options {
+    right: 91px;  
+  }
 }

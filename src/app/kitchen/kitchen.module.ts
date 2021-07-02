@@ -8,6 +8,7 @@ import { RecordsComponent } from './components/records/records.component';
 import { PendingOrderComponent } from './components/pending-order/pending-order.component';
 import { OrderInPreparationComponent } from './components/order-in-preparation/order-in-preparation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClosedOrderComponent } from './components/closed-order/closed-order.component';
 @NgModule({
   declarations: [
     OrdersComponent,
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RecordsComponent,
     PendingOrderComponent,
     OrderInPreparationComponent,
+    ClosedOrderComponent,
   ],
   imports: [CommonModule, SharedModule, KitchenRoutingModule, ReactiveFormsModule, FormsModule],
 })

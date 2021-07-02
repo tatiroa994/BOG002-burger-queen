@@ -8,7 +8,7 @@
   <ul *ngIf="showMenu" class="options">
     <li *ngIf="!statusOrder" class="item-options" routerLink="/waiter/order/{{ idTable }}">Nuevo pedido</li>
     <li
-      *ngIf="statusOrder === 1 || statusOrder === 2 || statusOrder === 4"
+      *ngIf="statusOrder === 1 || statusOrder === 2"
       class="item-options"
       (click)="sendingIndex()"
     >

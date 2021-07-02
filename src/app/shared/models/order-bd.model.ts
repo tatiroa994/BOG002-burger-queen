@@ -3,6 +3,7 @@ export interface OrderBd {
   options: string[];
   price: number;
   quantity: number;
+  'status-item'?: boolean;
 }
 
 export enum StatusOrder { //StatusOrder[0] colecciones de constantes
@@ -18,16 +19,18 @@ export interface OrderData {
   waiter: string;
   'date-hour': number;
   table: string;
-  'lead-time':string;
+  'lead-time': string;
 }
 
 export interface OrderDataEdit {
   products: OrderBd[];
   'total-order': number;
 }
-
-
-export interface ItemPopup{
-  product:string;
+export interface ItemPopup {
+  product: string;
   quantity: number;
+}
+export interface DataUpdate {
+  status: number;
+  'lead-time'?: string;
 }

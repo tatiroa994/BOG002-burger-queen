@@ -1,18 +1,16 @@
-<div>
-  <div class="bar-nav">
-    <div class="container-options">
-      <div (click)="showOrdersCurrent()" class="menu-options" [ngClass]="{ active: !isVisible }">Pedido</div>
-      <div (click)="showOrdersPreparation()" class="menu-options" [ngClass]="{ active: isVisible }">En preparación</div>
-    </div>
-    <div class="btn-records" routerLink="/kitchen/records">
-      <img src="../../../../assets/records.png" />
-      <span>Historial</span>
-    </div>
+<div class="container-principal">
+  <div class="btn-records" routerLink="/kitchen/records">
+    <img src="../../../../assets/records.png" />
+    <span>Historial</span>
   </div>
-  <div class="orders-container" *ngIf="!isVisible">
-    <app-pending-order *ngFor="let item of ordersPending" [detailOrder]="item"></app-pending-order>
-  </div>
-  <div class="orders-container" *ngIf="isVisible">
-    <app-order-in-preparation *ngFor="let item of ordersInPreparation" [dataOrder]="item"></app-order-in-preparation>
+  <div class="container-order">
+    <div class="orders-pending">
+      <div class="menu-options">Pedido</div>
+      <app-pending-order *ngFor="let item of ordersPending" [detailOrder]="item"></app-pending-order>
+    </div>    
+    <div class="orders-in-preparation">
+      <div class="menu-options">En preparación</div>
+      <app-order-in-preparation *ngFor="let item of ordersInPreparation" [dataOrder]="item"></app-order-in-preparation>
+    </div>
   </div>
 </div>

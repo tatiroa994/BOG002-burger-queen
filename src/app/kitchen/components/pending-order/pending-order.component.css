@@ -1,14 +1,16 @@
-.container-principal { 
+.container-principal {
+  max-width: 440px;
   width: 100%;
-  max-width: 350px;
   background-color: var(--color-black);
   border-radius: 10px;
   color: var(--color-white);
-  padding: 1rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   font-family: var(--font-roboto);
   font-size: 1.4rem;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 .table {
@@ -49,4 +51,8 @@
 
 app-buttom {
   align-self: flex-end;
+}
+
+.text-options{
+  display: block;
 }

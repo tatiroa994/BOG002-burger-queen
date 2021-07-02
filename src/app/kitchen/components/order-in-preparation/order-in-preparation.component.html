@@ -5,17 +5,18 @@
   <span class="tittle-order">Pedido:</span>
   <div class="item-order">
     <form [formGroup]="form">
-      <div *ngFor="let item of dataOrder.products">
+      <div *ngFor="let item of dataOrder.products index as i" class="container-item">
         <label>
-          <input type="checkbox" (change)="validateCheckbox($event, dataOrder.table)" value="{{item.item}}"/>
+          <input type="checkbox" (change)="validateCheckbox($event, dataOrder.table)" value="{{ item.item }}" data-id="{{i}}" />
           {{ item.item }}
         </label>
         <span class="quantity">Cantidad: {{ item.quantity }}</span>
         <div class="options" *ngIf="item.options.length > 0">
-          <span class="text-options" *ngFor="let item of item.options">+ {{ item }}</span>
+          <span class="text-options" *ngFor="let item of item.options"> + {{ item }}</span>
         </div>
       </div>
     </form>
   </div>
-  <app-buttom btnType="btn-primary" text="Entregar"></app-buttom>
+  <div class="container-btn" [ngClass]="{'none': isVisible}"> Entregar</div>
+  <app-buttom btnType="btn-primary" text="Entregar" *ngIf="isVisible" (click)='sendToTable()'></app-buttom>
 </div>
