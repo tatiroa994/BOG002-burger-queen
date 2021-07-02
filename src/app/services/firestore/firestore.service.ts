@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { OrderData, OrderDataEdit } from 'src/app/shared/models/order-bd.model';
+import { DataUpdate, OrderData, OrderDataEdit } from 'src/app/shared/models/order-bd.model';
 
 @Injectable({
   providedIn: 'root',
@@ -42,8 +42,8 @@ export class FirestoreService {
   }
 
   //actualiza estado pedido actual
-  public updateStatusCurrentOrder(status: { status: number }, idTable: string) {
-    return this.firestore.collection('tables').doc(idTable).update(status);
+  public updateStatusCurrentOrder(data: DataUpdate, idTable: string) {
+    return this.firestore.collection('tables').doc(idTable).update(data);
   }
 
   //setear documento orden actual
