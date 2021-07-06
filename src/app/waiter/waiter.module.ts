@@ -13,7 +13,7 @@ import { CardItemComponent } from './components/card-item/card-item.component';
 import { ModalOptionsComponent } from './components/modal-options/modal-options.component';
 import { QuantityControlComponent } from './components/quantity-control/quantity-control.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Capitalize } from '../shared/pipes/capitalize.pipe';
+
 @NgModule({
   declarations: [
     TablesComponent,
@@ -26,7 +26,7 @@ import { Capitalize } from '../shared/pipes/capitalize.pipe';
     CardItemComponent,
     ModalOptionsComponent,
     QuantityControlComponent,
-    Capitalize,
+    
   ],
   imports: [CommonModule, SharedModule, ReactiveFormsModule, FormsModule, WaiterRoutingModule],
 })

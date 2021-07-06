@@ -9,6 +9,7 @@ import { PendingOrderComponent } from './components/pending-order/pending-order.
 import { OrderInPreparationComponent } from './components/order-in-preparation/order-in-preparation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClosedOrderComponent } from './components/closed-order/closed-order.component';
+
 @NgModule({
   declarations: [
     OrdersComponent,
@@ -17,6 +18,8 @@ import { ClosedOrderComponent } from './components/closed-order/closed-order.com
     PendingOrderComponent,
     OrderInPreparationComponent,
     ClosedOrderComponent,
+    
+    
   ],
   imports: [CommonModule, SharedModule, KitchenRoutingModule, ReactiveFormsModule, FormsModule],
 })

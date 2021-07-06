@@ -27,7 +27,6 @@ export class OrderDetailComponent implements OnInit {
   itemsPopup!: OrderBd[];
   isPopupIcon!: number;
 
-
   constructor(
     private _addProduct: AddProductService,
     private _firestore: FirestoreService,
@@ -43,7 +42,6 @@ export class OrderDetailComponent implements OnInit {
     this.textBtn = 'Ordenar';
     this.popup = false;
     this.itemsPopup = [];
-
   }
 
   ngOnInit(): void {
@@ -52,9 +50,7 @@ export class OrderDetailComponent implements OnInit {
       this.pricesOrder.push(data.price * data.quantity);
       this.products.push(data);
       this.getTotalOrder();
-    
     });
-console.log(this._addProduct.prueba);
 
     this.table = String(this.route.snapshot.paramMap.get('id'));
     this.getOrderCurrent(this.table);
@@ -157,7 +153,7 @@ console.log(this._addProduct.prueba);
 
   updateOrderCurrent() {
     const data: OrderDataEdit = {
-      products: [...this.itemsPopup,...this.products],
+      products: [...this.itemsPopup, ...this.products],
       'total-order': this.totalOrder,
     };
     this._firestore.updateOrderActive(this.table, data);
@@ -165,10 +161,7 @@ console.log(this._addProduct.prueba);
   }
 
   onClickOrder() {
-    if (
-      this.statusText === 'Enviado cocina' ||
-      this.statusText === 'En preparación' 
-    ) {
+    if (this.statusText === 'Enviado cocina' || this.statusText === 'En preparación') {
       this.updateOrderCurrent();
     } else {
       this.sendOrder();

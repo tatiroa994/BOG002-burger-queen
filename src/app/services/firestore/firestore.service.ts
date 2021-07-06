@@ -22,6 +22,12 @@ export class FirestoreService {
     return this.firestore.collection('orders').add(data);
   }
 
+  // traer todos las ordenes
+  public getAllOrder(){
+    return this.firestore.collection('orders').valueChanges();
+  }
+
+
   // Envia pedido activo a la mesa
   public updateOrder(documentId: string, data: OrderData) {
     return this.firestore.collection('tables').doc(documentId).update(data);

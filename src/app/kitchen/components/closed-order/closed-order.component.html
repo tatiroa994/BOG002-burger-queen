@@ -1,34 +1,34 @@
 <div class="container-principal">
   <p class="item-list">
     <span class="description">Cliente:</span>
-    <span>Cliente:</span>
+    <span>{{ dataOrder.client|capitalize}}</span>
   </p>
   <div class="item-list">
     <span class="description">Mesero:</span>
-    <span>Mesero:</span>
+    <span>{{dataOrder.waiter}}</span>
   </div>
   <p class="item-list">
     <span class="description">Mesa:</span>
-    <span>Mesa:</span>
+    <span>{{dataOrder.table}}</span>
   </p>
   <p class="item-list">
     <span class="description">Fecha:</span>
-    <span>Fecha:</span>
+    <span>{{dataOrder['date-hour']| date: 'medium'}}</span>
   </p>
   <p class="item-list">
-    <span class="description">Tiempo de ejecución:</span>
-    <span>Tiempo de ejecución:</span>
+    <span class="description">Tiempo de preparación:</span>
+    <span>{{dataOrder['lead-time']}}</span>
   </p>
   <p class="item-list">
     <span class="description">Total:</span>
-    <span>Total:</span>
+    <span>{{dataOrder['total-order']}}</span>
   </p>
-  <span>Pedido:</span>
-  <div>
-    <span>Producto:</span>
-    <span>cantidad:</span>
-    <div>
-      <span>Opciones:</span>
+  <span class="order">Pedido:</span>
+  <div *ngFor="let item of dataOrder.products; index as i" class="item-order">
+    <span>{{i+1}}. {{item.item}}:</span>
+    <span>Cantidad: {{item.quantity}}</span>
+    <div *ngFor="let item of item.options">
+      <span>+ {{item}}</span>
     </div>
   </div>
 </div>
