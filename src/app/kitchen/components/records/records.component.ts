@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { OrderData } from 'src/app/shared/models/order-bd.model';
 
@@ -7,19 +8,22 @@ import { OrderData } from 'src/app/shared/models/order-bd.model';
   templateUrl: './records.component.html',
   styleUrls: ['./records.component.css'],
 })
-export class RecordsComponent implements OnInit {
+export class RecordsComponent implements OnInit, OnDestroy {
   allOrders!: OrderData[];
-  constructor(private firestore: FirestoreService) {
-    
-  }
+  sub!: Subscription;
+  constructor(private firestore: FirestoreService) {}
 
   ngOnInit(): void {
     this.getOrders();
   }
 
-  getOrders() {
-    this.firestore.getAllOrder().subscribe((data) => {
+  getOrders(): void {
+    this.sub = this.firestore.getAllOrder().subscribe((data) => {
       this.allOrders = data as OrderData[];
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

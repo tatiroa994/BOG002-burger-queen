@@ -17,7 +17,7 @@ export class CardItemComponent {
     this.price = Input();
   }
 
-  onOpenModal() {
+  onOpenModal():void {
     this.openModal.emit();
   }
 }

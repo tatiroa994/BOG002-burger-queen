@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { OrderData } from 'src/app/shared/models/order-bd.model';
 
@@ -16,6 +17,7 @@ export class TableComponent implements OnInit {
   statusColor!: string;
   popupOpen!: boolean;
   dataOrder!: OrderData;
+  sub!: Subscription;
   constructor(private router: Router, private firestore: FirestoreService) {
     this.idTable = Input();
     this.popupOpen = false;
@@ -63,7 +65,7 @@ export class TableComponent implements OnInit {
 
   openPopup() {
     this.popupOpen = true;
-    this.firestore.getActiveOrder(this.idTable.toString()).subscribe((data) => {
+    this.sub = this.firestore.getActiveOrder(this.idTable.toString()).subscribe((data) => {
       this.dataOrder = data as OrderData;
     });
   }
@@ -71,6 +73,8 @@ export class TableComponent implements OnInit {
   finishOrder() {
     this.popupOpen = false;
     this.firestore.createOrder(this.dataOrder);
-    this.firestore.setOrderActive(this.idTable.toString(), {})
+    this.firestore.setOrderActive(this.idTable.toString(), {});
   }
+
+  
 }

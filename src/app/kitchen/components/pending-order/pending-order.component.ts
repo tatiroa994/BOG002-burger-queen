@@ -1,22 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
-import { OrderBd, OrderData } from 'src/app/shared/models/order-bd.model';
+import { OrderData } from 'src/app/shared/models/order-bd.model';
 
 @Component({
   selector: 'app-pending-order',
   templateUrl: './pending-order.component.html',
   styleUrls: ['./pending-order.component.css'],
 })
-export class PendingOrderComponent implements OnInit {
+export class PendingOrderComponent {
   @Input() detailOrder!: OrderData;
 
   constructor(private firestore: FirestoreService) {}
 
-  ngOnInit(): void {
-    console.log('');
-  }
-
-  sendToPreparation() {
+  sendToPreparation(): void {
     this.firestore.updateStatusCurrentOrder({ status: 2 }, this.detailOrder.table);
   }
 }

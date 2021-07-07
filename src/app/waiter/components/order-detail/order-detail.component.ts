@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AddProductService } from 'src/app/services/addProduct/add-product.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { ItemPopup, OrderBd, OrderData, OrderDataEdit } from 'src/app/shared/models/order-bd.model';
@@ -9,7 +10,7 @@ import { ItemPopup, OrderBd, OrderData, OrderDataEdit } from 'src/app/shared/mod
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.css'],
 })
-export class OrderDetailComponent implements OnInit {
+export class OrderDetailComponent implements OnInit, OnDestroy {
   priceTotal!: number;
   products: OrderBd[];
   pricesOrder: number[];
@@ -26,6 +27,8 @@ export class OrderDetailComponent implements OnInit {
   popup!: boolean;
   itemsPopup!: OrderBd[];
   isPopupIcon!: number;
+  sub1!: Subscription;
+  sub2!: Subscription;
 
   constructor(
     private _addProduct: AddProductService,
@@ -45,7 +48,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._addProduct.getItem().subscribe((data) => {
+    this.sub1 = this._addProduct.getItem().subscribe((data) => {
       data.options = this.removeEmpty(data.options);
       this.pricesOrder.push(data.price * data.quantity);
       this.products.push(data);
@@ -103,7 +106,7 @@ export class OrderDetailComponent implements OnInit {
   }
 
   getOrderCurrent(idTable: string) {
-    this._firestore.getActiveOrder(idTable).subscribe((data) => {
+    this.sub2 = this._firestore.getActiveOrder(idTable).subscribe((data) => {
       const dataAs = data as OrderData;
       if (dataAs.table) {
         this.isPopupIcon = dataAs.status;
@@ -177,5 +180,10 @@ export class OrderDetailComponent implements OnInit {
 
   showPopup() {
     this.popup = !this.popup;
+  }
+
+  ngOnDestroy() {
+    this.sub1.unsubscribe();
+    this.sub2.unsubscribe();
   }
 }

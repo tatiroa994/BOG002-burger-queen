@@ -45,7 +45,7 @@ export class OrderInPreparationComponent implements OnInit {
     this.activeBtn(+idTable);
   }
 
-  activeBtn(idTable: number) {
+  activeBtn(idTable: number):void {
     const lengthStorage = this.storageCheckbox[idTable].length;
     const lengthProducts = this.dataOrder.products.length;
     if (lengthStorage === lengthProducts) {
@@ -55,7 +55,7 @@ export class OrderInPreparationComponent implements OnInit {
     }
   }
 
-  getLeadTime(timeStamp: number) {
+  getLeadTime(timeStamp: number):void {
     const day1 = new Date(timeStamp);
     const day2 = new Date();
     const difference = day2.getTime() - day1.getTime();
@@ -66,7 +66,7 @@ export class OrderInPreparationComponent implements OnInit {
     this.timeTotal = ` ${horas} hora  ${minutoPositivo} minutos `;
   }
 
-  sendToTable() {
+  sendToTable():void {
     this.getLeadTime(this.dataOrder['date-hour']);
     this.firestore.updateStatusCurrentOrder({ status: 3, 'lead-time': this.timeTotal }, this.dataOrder.table);
     this.storageCheck.cleanCheckbox(+this.dataOrder.table);

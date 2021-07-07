@@ -16,11 +16,11 @@ export class ItemOrderComponent {
     this.cantProduct = 1;
   }
 
-  getPriceTotal(cant: number) {
+  getPriceTotal(cant: number):void {
     this.priceOrder.emit(cant);
   }
 
-  sendIndex() {
+  sendIndex():void {
     this.deleteItem.emit(this.index);
   }
 }
