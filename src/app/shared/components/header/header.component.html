@@ -1,6 +1,9 @@
 <header class="header" [ngStyle]="{'width': isWaiter? '65%':'100%'}">
     <button (click)="toHome()" class="btn-home" *ngIf="isWaiter"></button>
     <img src="../../assets/lampara.png" class="ligth1">
-    <img src="../../assets/Burguer_logo.gif" class="logo">
+    <!-- <img src="../../assets/Burguer_logo.gif" class="logo"> -->
+    <video loop autoplay class="logo">
+        <source src="../../assets/logo.mp4" type="video/mp4">
+    </video>
     <img src="../../assets/lampara.png" class="ligth2">
 </header>

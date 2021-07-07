@@ -24,8 +24,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log("init");
-    
+    console.log('init');
+
     this.getMenuBreakfast();
   }
 
@@ -57,6 +57,7 @@ export class MenuComponent implements OnInit, OnDestroy {
         this.dataMenu.push(element);
       });
     });
+    console.log(this.sub2);
   }
 
   modalOpen(item: MenuItem): void {
@@ -65,8 +66,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-console.log("destroy");
-    // this.sub1.unsubscribe();
-    // this.sub2.unsubscribe();
+    console.log('destroy');
+    this.sub1.unsubscribe();
+    this.sub2?.unsubscribe();
   }
 }
