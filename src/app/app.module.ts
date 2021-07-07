@@ -8,10 +8,26 @@ import { SharedModule } from './shared/shared.module';
 import { WaiterModule } from './waiter/waiter.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, WaiterModule, KitchenModule, SharedModule, AngularFireModule.initializeApp(environment.firebase), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    WaiterModule,
+    KitchenModule,
+    SharedModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+    AngularFirestoreModule.enablePersistence(),
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
