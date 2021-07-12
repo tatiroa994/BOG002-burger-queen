@@ -178,3 +178,11 @@ label[for='waiter'] {
 .show{
   display: flex;
 }
+
+.input-red{
+  border: red solid 2px;
+}
+
+.input-red::placeholder{
+  color: red;
+}

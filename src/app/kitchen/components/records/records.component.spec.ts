@@ -6,7 +6,7 @@ describe('RecordsComponent', () => {
   let component: RecordsComponent;
   let fixture: ComponentFixture<RecordsComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async () => { 
     await TestBed.configureTestingModule({
       declarations: [ RecordsComponent ]
     })

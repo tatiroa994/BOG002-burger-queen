@@ -29,6 +29,7 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
   isPopupIcon!: number;
   sub1!: Subscription;
   sub2!: Subscription;
+  placeholderInput!: string;
 
   constructor(
     private _addProduct: AddProductService,
@@ -45,6 +46,7 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
     this.textBtn = 'Ordenar';
     this.popup = false;
     this.itemsPopup = [];
+    this.placeholderInput = '';
   }
 
   ngOnInit(): void {
@@ -98,11 +100,13 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
   }
 
   saveClient(client: string) {
-    this.clientOrder = client;
+    this.clientOrder = client.trim();
+    this.placeholderInput = '';
   }
 
   saveWaiter(waiter: string) {
-    this.waiterOrder = waiter;
+    this.waiterOrder = waiter.trim();
+    this.placeholderInput = '';
   }
 
   getOrderCurrent(idTable: string) {
@@ -167,7 +171,11 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
     if (this.statusText === 'Enviado cocina' || this.statusText === 'En preparación') {
       this.updateOrderCurrent();
     } else {
-      this.sendOrder();
+      if (!this.clientOrder || !this.waiterOrder) {
+        this.placeholderInput = 'Ingrese nombre';
+      } else {
+        this.sendOrder();
+      }
     }
   }
   placeHolderBtn() {

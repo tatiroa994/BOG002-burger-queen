@@ -6,13 +6,7 @@ import { OrderData } from 'src/app/shared/models/order-bd.model';
   templateUrl: './closed-order.component.html',
   styleUrls: ['./closed-order.component.css']
 })
-export class ClosedOrderComponent implements OnInit {
+export class ClosedOrderComponent{
 @Input() dataOrder!: OrderData;
   constructor() { }
-
-  ngOnInit(): void {
-    console.log();
-    
-  }
-
 }

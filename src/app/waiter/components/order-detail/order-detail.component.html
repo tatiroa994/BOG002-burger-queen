@@ -4,22 +4,24 @@
       <span class="text">Cliente</span>
       <input
         type="text"
-        (change)="saveClient(client.value)"
+        (input)="saveClient(client.value)"
         #client
         [value]="valueClient | capitalize"
         [readonly]="valueClient"
-        [ngClass]="{ 'input-text': valueClient }"
+        [ngClass]="{ 'input-text': valueClient, 'input-red': placeholderInput}"
+        [placeholder]="placeholderInput"
       />
     </label>
     <label for="waiter"
       ><span class="text">Meserx</span>
       <input
         type="text"
-        (change)="saveWaiter(waiter.value)"
+        (input)="saveWaiter(waiter.value)"
         #waiter
         [value]="valueWaiter | capitalize"
         [readonly]="valueWaiter"
-        [ngClass]="{ 'input-text': valueWaiter }"
+        [ngClass]="{ 'input-text': valueWaiter, 'input-red': placeholderInput }"
+        [placeholder]="placeholderInput"
       />
       <div *ngIf="isPopupIcon === 2 || isPopupIcon === 4" class="btn-orderCurrent" (click)="showPopup()"></div>
     </label>
