@@ -1,0 +1,38 @@
+.container-principal {
+  background-image: url('../../assets/fondo_2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.not-found {
+  width: 654px;
+  height: 288px;
+  position: absolute;
+  top: 16px;
+  left: 20px;
+}
+
+.container-404 {
+  background-image: url('../../assets/tv.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 693px;
+  height: 350px;
+  position: relative;
+}
+
+.link-home {
+  position: absolute;
+  bottom: 70px;
+  right: 46px;
+  color: var(--color-white);
+  font-family: var(--font-text);
+  font-size: 1.5rem;
+}
