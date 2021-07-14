@@ -1,7 +1,7 @@
 <div class="container-principal">
   <app-quantity-control
     [cant]="cantProduct"
-    (cantChanged)="getPriceTotal($event)"
+    (cantChanged)="sendQuantityItemOrder($event)"
   ></app-quantity-control>
   <div class="container-detail">
     <div class="container-item-price">

@@ -10,14 +10,14 @@ export class ItemOrderComponent {
   @Input() index!: number;
   @Input() cantProduct: number;
   @Output() deleteItem = new EventEmitter<number>();
-  @Output() priceOrder = new EventEmitter<number>();
+  @Output() quantity = new EventEmitter<number>();
   priceTotal!: number;
   constructor() {
     this.cantProduct = 1;
   }
 
-  getPriceTotal(cant: number):void {
-    this.priceOrder.emit(cant);
+  sendQuantityItemOrder(cant: number):void {
+    this.quantity.emit(cant);
   }
 
   sendIndex():void {

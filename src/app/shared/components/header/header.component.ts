@@ -6,15 +6,13 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent  {
+export class HeaderComponent {
   pathCurrent: string = location.pathname;
-  isWaiter: boolean =
-    this.pathCurrent.includes('waiter') || this.pathCurrent.includes('kitchen');
+  isNotHome: boolean = !this.pathCurrent.includes('home');
 
   constructor(private router: Router) {}
-  
+
   toHome() {
     this.router.navigate(['/home']);
   }
-
 }

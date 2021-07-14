@@ -57,7 +57,6 @@ export class MenuComponent implements OnInit, OnDestroy {
         this.dataMenu.push(element);
       });
     });
-    console.log(this.sub2);
   }
 
   modalOpen(item: MenuItem): void {

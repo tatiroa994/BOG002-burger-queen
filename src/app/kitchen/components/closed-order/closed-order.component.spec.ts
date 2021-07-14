@@ -35,14 +35,7 @@ const mockOrdersClosed = {
 
 fdescribe('ClosedOrderComponent', () => {
   let component: ClosedOrderComponent;
-  let fixture: ComponentFixture<ClosedOrderComponent>;
-
-  // beforeEach(async () => {
-  //   await TestBed.configureTestingModule({
-  //     declarations: [ClosedOrderComponent],
-  //   }).compileComponents();
-
-  // });
+  let fixture: ComponentFixture<ClosedOrderComponent>; 
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ClosedOrderComponent);

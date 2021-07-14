@@ -43,7 +43,7 @@
       [cantProduct]="product.quantity"
       [index]="i"
       (deleteItem)="deleteProduct($event)"
-      (priceOrder)="updateProps($event, i)"
+      (quantity)="updateProps($event, i)"
     >
       <span item>{{ product.item }}</span>
       <div options *ngIf="product.options.length">
