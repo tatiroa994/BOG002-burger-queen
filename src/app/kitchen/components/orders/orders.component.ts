@@ -9,7 +9,6 @@ import { OrderData } from 'src/app/shared/models/order-bd.model';
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit, OnDestroy {
-  isVisible!: boolean;
   ordersPending!: OrderData[];
   ordersInPreparation!: OrderData[];
   sub1!: Subscription;
@@ -29,14 +28,6 @@ export class OrdersComponent implements OnInit, OnDestroy {
       const dataOrder = data as OrderData[];
       this.ordersInPreparation = dataOrder;
     });
-  }
-
-  showOrdersCurrent():void {
-    this.isVisible = false;
-  }
-
-  showOrdersPreparation():void {
-    this.isVisible = true;
   }
 
   ngOnDestroy(): void {

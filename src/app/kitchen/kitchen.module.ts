@@ -18,8 +18,6 @@ import { ClosedOrderComponent } from './components/closed-order/closed-order.com
     PendingOrderComponent,
     OrderInPreparationComponent,
     ClosedOrderComponent,
-    
-    
   ],
   imports: [CommonModule, SharedModule, KitchenRoutingModule, ReactiveFormsModule, FormsModule],
 })

@@ -6,7 +6,7 @@ export interface OrderBd {
   'status-item'?: boolean;
 }
 
-export enum StatusOrder { //StatusOrder[0] colecciones de constantes
+export enum StatusOrder { //StatusOrder[0] StatusOrder['NUEVO'] colecciones de constantes
   NUEVO = 0,
   ENVIADO_COCINA = 1,
   EN_PREPARACION = 2,

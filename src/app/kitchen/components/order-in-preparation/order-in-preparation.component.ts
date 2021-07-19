@@ -15,6 +15,7 @@ export class OrderInPreparationComponent implements OnInit {
   form!: FormGroup;
   isVisible!: boolean;
   storageCheckbox!: any;
+
   constructor(private firestore: FirestoreService, private storageCheck: CheckboxStorageService) {
     this.isVisible = false;
   }
@@ -45,6 +46,7 @@ export class OrderInPreparationComponent implements OnInit {
     this.activeBtn(+idTable);
   }
 
+  //activa el  boton de entregar
   activeBtn(idTable: number):void {
     const lengthStorage = this.storageCheckbox[idTable].length;
     const lengthProducts = this.dataOrder.products.length;
@@ -56,14 +58,15 @@ export class OrderInPreparationComponent implements OnInit {
   }
 
   getLeadTime(timeStamp: number):void {
-    const day1 = new Date(timeStamp);
-    const day2 = new Date();
-    const difference = day2.getTime() - day1.getTime();
-    const days = difference / (1000 * 3600);
-    const horas = Math.floor(days);
-    const minutos = Math.abs(days); // Change to positive
-    var minutoPositivo = Math.ceil((minutos - Math.floor(minutos)) * 60);
-    this.timeTotal = ` ${horas} hora  ${minutoPositivo} minutos `;
+    const initialDate = new Date(timeStamp);
+    const finalDate = new Date();
+    //calcular la direncia entre la finalizacion del pedido y la hora de inicio
+    const difference = finalDate.getTime() - initialDate.getTime();
+    // conversión de milisegundos a hora
+    const hours = Math.floor(difference / (1000 * 3600));
+    // calcular minutos
+    const minutes = Math.ceil((hours - Math.floor(hours)) * 60);
+    this.timeTotal = ` ${hours} hora  ${minutes} minutos `;
   }
 
   sendToTable():void {
