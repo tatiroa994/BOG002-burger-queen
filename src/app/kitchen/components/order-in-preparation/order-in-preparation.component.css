@@ -62,7 +62,7 @@ app-buttom {
   display: block;
 }
 
-.container-btn {
+.btn-false {
   border-radius: 5px;
   align-self: flex-end;
   width: 145px;

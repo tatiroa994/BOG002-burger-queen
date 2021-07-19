@@ -14,6 +14,7 @@ const routes: Routes = [
         path: '',
         redirectTo: 'orders',
         pathMatch: 'full',
+        //full: Evita un loop infinito al cargar una ruta vacia
       },
       {
         path: 'orders',

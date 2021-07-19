@@ -23,6 +23,6 @@
       </div>
     </form>
   </div>
-  <div class="container-btn" [ngClass]="{ none: isVisible }">Entregar</div>
+  <div class="btn-false" [ngClass]="{ none: isVisible }">Entregar</div>
   <app-buttom btnType="btn-primary" text="Entregar" *ngIf="isVisible" (click)="sendToTable()"></app-buttom>
 </div>

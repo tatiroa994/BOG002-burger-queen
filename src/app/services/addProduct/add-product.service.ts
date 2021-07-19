@@ -8,12 +8,10 @@ import { OrderBd } from 'src/app/shared/models/order-bd.model';
 export class AddProductService {
   private addProductSubject = new Subject<OrderBd>();
   public addProduct$ = this.addProductSubject.asObservable();
-prueba!: OrderBd
   constructor() {}
 
   addItem(item: OrderBd) {
     this.addProductSubject.next(item);
-    this.prueba=item
   }
 
   getItem() {
