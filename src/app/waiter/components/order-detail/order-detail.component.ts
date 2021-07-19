@@ -84,21 +84,6 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
     return arr;
   }
 
-  sendOrder() {
-    const orderData = {
-      client: this.clientOrder,
-      products: this.products,
-      status: 1,
-      'total-order': this.totalOrder,
-      waiter: this.waiterOrder,
-      'date-hour': Date.now(),
-      table: this.table,
-      'lead-time': '',
-    };
-    this._firestore.updateOrder(this.table, orderData);
-    this.router.navigate(['/waiter']);
-  }
-
   saveClient(client: string) {
     this.clientOrder = client.trim();
     this.placeholderInput = '';
@@ -142,12 +127,6 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
         this.statusText = 'En preparación';
         this.statusColor = 'status-red';
         this.urlImgStatus = '../../../../assets/block_icon.png';
-
-        break;
-      case 4:
-        this.statusText = 'Servido en mesa';
-        this.statusColor = 'status-white';
-        this.urlImgStatus = '../../../../assets/server_icon.png';
         break;
       default:
         this.statusText = 'Nuevo';
@@ -164,6 +143,21 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
       'total-order': this.totalOrder,
     };
     this._firestore.updateOrderActive(this.table, data);
+    this.router.navigate(['/waiter']);
+  }
+
+  sendOrder() {
+    const orderData = {
+      client: this.clientOrder,
+      products: this.products,
+      status: 1,
+      'total-order': this.totalOrder,
+      waiter: this.waiterOrder,
+      'date-hour': Date.now(),
+      table: this.table,
+      'lead-time': '',
+    };
+    this._firestore.updateOrder(this.table, orderData);
     this.router.navigate(['/waiter']);
   }
 
